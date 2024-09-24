@@ -1,5 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Link from "next/link";
+// import Navbar from "@/components/Navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,7 +25,17 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ul className="login-menu">
+          <li>
+            <Link href="/login">Login Main</Link>
+          </li>
+          <li>
+            <Link href="/login/user">Login user</Link>
+          </li>
+          <li>
+            <Link href="/login/adminn">Login admin</Link>
+          </li>
+        </ul>
       </body>
     </html>
   );
