@@ -1,16 +1,21 @@
-'use client'
+'use client';
 
-import React from 'react'
+import React from 'react';
 
-const Project = ({params}) => {
-    console.log(params)
-  return (<section>
+const Project = ({ params }) => {
+  console.log('Component is rendering');
+  console.log(`The params are: ${JSON.stringify(params)}`);
 
-      <div>Project {params.all}</div>
+  return (
+    <section>
+      <div>Project: {params.all}</div>
+      <ul>
+        {params.all?.map((route, id) => (
+          <li key={id}>{route}</li>
+        ))}
+      </ul>
+    </section>
+  );
+};
 
-      <div>{params.all.map((route,id)=>(<li key={id}>{route}</li>))}</div>
-  </section>
-  )
-}
-
-export default Project
+export default Project;
